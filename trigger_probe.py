@@ -13,7 +13,7 @@ def get_metadata(input_file):
     """
 
     :param input_file:
-    :return:
+    :return: metadata_output
     """
     command = [FFPROBE_BIN,
                '-v', 'quiet',
@@ -22,8 +22,8 @@ def get_metadata(input_file):
                '-show_streams',
                input_file]
     output = sp.check_output(command)
-    output = json.loads(output)
-    return output
+    metadata_output = json.loads(output)
+    return metadata_output
 
 # Testing get_metadata()
 
