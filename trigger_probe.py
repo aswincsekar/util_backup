@@ -22,6 +22,7 @@ def get_metadata(input_file):
                '-show_streams',
                input_file]
     output = sp.check_output(command)
+    output = output.decode('utf-8')
     metadata_output = json.loads(output)
     return metadata_output
 
